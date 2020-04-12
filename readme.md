@@ -11,6 +11,8 @@ terraform graph \
     > graph.png
 ```
 
+![Example](./graph.png)
+
 
 ### Development
 ```
