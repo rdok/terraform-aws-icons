@@ -1,0 +1,20 @@
+# Builds and publish docker image.
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: docker image build . --tag  rdok/terraform-aws-icons:latest
+    - name: Publish
+      run: |
+        echo ${TOKEN} | docker login -u ${USERNAME} --password-stdin
+        docker image push rdok/vim:latest
+        docker logout
